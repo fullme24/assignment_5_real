@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.PageName = "Book Selection";
+}
+
+@model IQueryable<Libro>
+
+<!--
+    This page is going to display the records in our book table in our database
+-->
+<div class="text-center">
+    <table>
+        <thead class="table-success sep table-bordered">
+            <tr>
+                <th>Book ID</th>
+                <th>Title</th>
+                <th>ISBN</th>
+                <th>Category</th>
+                <th>Classification</th>
+                <th>Price</th>
+                <th>Author's Firstname</th>
+                <th>Author's Middlename</th>
+                <th>Author's Lastname</th>
+                <th>Publisher</th>
+            </tr>
+        </thead>
+
+        <tbody class="table-info">
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.BookID</td>
+                    <td>@x.BTitle</td>
+                    <td>@x.ISBN</td>
+                    <td>@x.BCategory</td>
+                    <td>@x.BClassification</td>
+                    <td>@x.BPrice</td>
+                    <td>@x.BAuthorFirst</td>
+                    <td>@x.BAuthorMid</td>
+                    <td>@x.BAuthorLast</td>
+                    <td>@x.BPublisher</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
