@@ -9,8 +9,8 @@ using assignment_5_real.Models;
 namespace assignment_5_real.Migrations
 {
     [DbContext(typeof(LibrosDbContext))]
-    [Migration("20210216203000_Initial")]
-    partial class Initial
+    [Migration("20210223021104_assignment_5")]
+    partial class assignment_5
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,6 +44,9 @@ namespace assignment_5_real.Migrations
                     b.Property<string>("BClassification")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("BPageNumber")
+                        .HasColumnType("int");
 
                     b.Property<double>("BPrice")
                         .HasColumnType("float");

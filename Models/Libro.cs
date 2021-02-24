@@ -35,5 +35,7 @@ namespace assignment_5_real.Models
         public string BCategory { get; set; }
         [Required]
         public double BPrice { get; set; }
+        [Required]
+        public int BPageNumber { get; set; }
     }
 }

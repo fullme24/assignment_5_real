@@ -2,7 +2,7 @@
 
 namespace assignment_5_real.Migrations
 {
-    public partial class Initial : Migration
+    public partial class assignment_5 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,7 +20,8 @@ namespace assignment_5_real.Migrations
                     BPublisher = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BClassification = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     BCategory = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    BPrice = table.Column<double>(type: "float", nullable: false)
+                    BPrice = table.Column<double>(type: "float", nullable: false),
+                    BPageNumber = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {

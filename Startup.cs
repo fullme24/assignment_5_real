@@ -60,9 +60,13 @@ namespace assignment_5_real
 
             app.UseEndpoints(endpoints =>
             {
+                //Note: this section of code is used to change how the URL works. It makes it more clear and easy for end-users
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "pagination",
+                    "/P{page}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapDefaultControllerRoute();
             });
 
             SeedData.EnsurePopulated(app);

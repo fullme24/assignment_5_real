@@ -43,6 +43,9 @@ namespace assignment_5_real.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("BPageNumber")
+                        .HasColumnType("int");
+
                     b.Property<double>("BPrice")
                         .HasColumnType("float");
 

@@ -34,7 +34,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Signet",
                         BClassification = "Fiction",
                         BCategory = "Classic",
-                        BPrice = 9.95
+                        BPrice = 9.95,
+                        BPageNumber = 1488
                     },
                     new Libro
                     {
@@ -46,7 +47,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Simon & Schuster",
                         BClassification = "Non-Fiction",
                         BCategory = "Biography",
-                        BPrice = 14.58
+                        BPrice = 14.58,
+                        BPageNumber = 944
                     },
                     new Libro
                     {
@@ -58,7 +60,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Bantam",
                         BClassification = "Non-Fiction",
                         BCategory = "Biography",
-                        BPrice = 21.54
+                        BPrice = 21.54,
+                        BPageNumber = 832
                     },
                     new Libro
                     {
@@ -70,7 +73,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Random House",
                         BClassification = "Non-Fiction",
                         BCategory = "Biography",
-                        BPrice = 11.61
+                        BPrice = 11.61,
+                        BPageNumber = 864
                     },
                     new Libro
                     {
@@ -82,7 +86,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Random House",
                         BClassification = "Non-Fiction",
                         BCategory = "Historical",
-                        BPrice = 13.33
+                        BPrice = 13.33,
+                        BPageNumber = 528
                     },
                     new Libro
                     {
@@ -94,7 +99,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Vintage",
                         BClassification = "Fiction",
                         BCategory = "Historical Fiction",
-                        BPrice = 15.95
+                        BPrice = 15.95,
+                        BPageNumber = 288
                     },
                     new Libro
                     {
@@ -106,7 +112,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Grand Central Publishing",
                         BClassification = "Non-Fiction",
                         BCategory = "Self-Help",
-                        BPrice = 14.99
+                        BPrice = 14.99,
+                        BPageNumber = 304
                     },
                     new Libro
                     {
@@ -118,7 +125,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Grand Central Publishing",
                         BClassification = "Non-Fiction",
                         BCategory = "Self-Help",
-                        BPrice = 21.66
+                        BPrice = 21.66,
+                        BPageNumber = 240
                     },
                     new Libro
                     {
@@ -130,7 +138,8 @@ namespace assignment_5_real.Models
                         BPublisher = "Portfolio",
                         BClassification = "Non-Fiction",
                         BCategory = "Business",
-                        BPrice = 29.16
+                        BPrice = 29.16,
+                        BPageNumber = 400
                     },
                     new Libro
                     {
@@ -142,7 +151,50 @@ namespace assignment_5_real.Models
                         BPublisher = "Bantam",
                         BClassification = "Fiction",
                         BCategory = "Thrillers",
-                        BPrice = 15.03
+                        BPrice = 15.03,
+                        BPageNumber = 642
+                    },
+
+                    new Libro
+                    {
+                        ISBN = "978-0765360960",
+                        BTitle = "Mistborn",
+                        BAuthorFirst = "Brandon",
+                        BAuthorMid = null,
+                        BAuthorLast = "Sanderson",
+                        BPublisher = "Tor Books",
+                        BClassification = "Fiction",
+                        BCategory = "Fantasy",
+                        BPrice = 20.00,
+                        BPageNumber = 672
+                    },
+
+                    new Libro
+                    {
+                        ISBN = "978-1250768681",
+                        BTitle = "The Eye of the World",
+                        BAuthorFirst = "Robert",
+                        BAuthorMid = null,
+                        BAuthorLast = "Jordan",
+                        BPublisher = "Doherty Associates, LLC, Tom",
+                        BClassification = "Fiction",
+                        BCategory = "Fantasy",
+                        BPrice = 25.00,
+                        BPageNumber = 784
+                    },
+
+                    new Libro
+                    {
+                        ISBN = "978-0802726438",
+                        BTitle = "This Is My God",
+                        BAuthorFirst = "Herman",
+                        BAuthorMid = null,
+                        BAuthorLast = "Wouk",
+                        BPublisher = "Doubleday",
+                        BClassification = "Non-Fiction",
+                        BCategory = "Religion",
+                        BPrice = 15.00,
+                        BPageNumber = 368
                     }
                 );
                 //this piece of code saves the list above to the database

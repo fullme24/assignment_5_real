@@ -2,7 +2,7 @@
     ViewBag.PageName = "Book Selection";
 }
 
-@model IQueryable<Libro>
+@model ProjectListViewModel
 
 <!--
     This page is going to display the records in our book table in our database
@@ -13,6 +13,7 @@
             <tr>
                 <th>Book ID</th>
                 <th>Title</th>
+                <th>Page Number</th>
                 <th>ISBN</th>
                 <th>Category</th>
                 <th>Classification</th>
@@ -24,12 +25,16 @@
             </tr>
         </thead>
 
-        <tbody class="table-info">
-            @foreach (var x in Model)
+        <tbody class="table-info sep table table-hover">
+            @foreach (var x in Model.Libros)
             {
+                <!--
+                    Here I have put the attributes that I want to show. Note: I have added page number
+                -->
                 <tr>
                     <td>@x.BookID</td>
                     <td>@x.BTitle</td>
+                    <td>@x.BPageNumber</td>
                     <td>@x.ISBN</td>
                     <td>@x.BCategory</td>
                     <td>@x.BClassification</td>
@@ -42,4 +47,12 @@
             }
         </tbody>
     </table>
+
+    <!--
+        Here is displayed the page numbers that are automatically generated based on the database
+    -->
+        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+             page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
+             class="table-success w-25 mx-auto shadow p-3 mb-5 bg-light rounded">
+        </div>
 </div>
