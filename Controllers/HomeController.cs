@@ -29,11 +29,12 @@ namespace assignment_5_real.Controllers
 
         //Here is this method we return the main view and send 
         //the object that contains the information we need to populate our page with books and pagination
-        public IActionResult Index(int page = 1)
+        public IActionResult Index(string category, int page = 1)
         {
             return View(new ProjectListViewModel
             {
                 Libros = _repository.Libros
+                    .Where(p => category == null || p.BCategory == category)
                     .OrderBy(p => p.BookID)
                     .Skip((page - 1) * PageSize)
                     .Take(PageSize),
@@ -41,8 +42,9 @@ namespace assignment_5_real.Controllers
                 {
                     CurrentPage = page,
                     ItemsPerPage = PageSize,
-                    TotalNumItems = _repository.Libros.Count()
-                }
+                    TotalNumItems = category == null ? _repository.Libros.Count() : _repository.Libros.Where(l => l.BCategory == category).Count()
+                },
+                CurrentCategory = category
             });
         }
 

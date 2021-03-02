@@ -29,6 +29,9 @@ namespace assignment_5_real.Infrastructure
         public PagingInfo PageModel { get; set; }
         public string PageAction { get; set; }
 
+        [HtmlAttributeName(DictionaryAttributePrefix = "page-url-")]
+        public Dictionary<string, object> pageUrlValues { get; set; } = new Dictionary<string, object>();
+
         //This is the help the pagination look good
         public bool PageClassesEnabled { get; set; }
         public string PageClass { get; set; }
@@ -44,7 +47,10 @@ namespace assignment_5_real.Infrastructure
             for (int i = 1; i <= PageModel.TotalPages; i++)
             {
                 TagBuilder tag = new TagBuilder("a");
-                tag.Attributes["href"] = urlHelper.Action(PageAction, new { page = i });
+
+                pageUrlValues["page"] = i;
+
+                tag.Attributes["href"] = urlHelper.Action(PageAction, pageUrlValues);
                 
                 if (PageClassesEnabled)
                 {

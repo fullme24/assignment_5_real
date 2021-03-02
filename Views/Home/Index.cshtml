@@ -29,21 +29,9 @@
             @foreach (var x in Model.Libros)
             {
                 <!--
-                    Here I have put the attributes that I want to show. Note: I have added page number
+                    Here I will put the attributes that I want to show. Note: I have added page number
                 -->
-                <tr>
-                    <td>@x.BookID</td>
-                    <td>@x.BTitle</td>
-                    <td>@x.BPageNumber</td>
-                    <td>@x.ISBN</td>
-                    <td>@x.BCategory</td>
-                    <td>@x.BClassification</td>
-                    <td>@x.BPrice</td>
-                    <td>@x.BAuthorFirst</td>
-                    <td>@x.BAuthorMid</td>
-                    <td>@x.BAuthorLast</td>
-                    <td>@x.BPublisher</td>
-                </tr>
+                <partial name="LibroSummary" model="x" />
             }
         </tbody>
     </table>
@@ -51,8 +39,10 @@
     <!--
         Here is displayed the page numbers that are automatically generated based on the database
     -->
-        <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
-             page-class-normal="btn-outline-dark" page-class-selected="btn-primary"
-             class="table-success w-25 mx-auto shadow p-3 mb-5 bg-light rounded">
-        </div>
+
+    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn"
+         page-class-normal="btn-light" page-class-selected="btn-primary"
+         page-url-category=" @Model.CurrentCategory"
+         class="">
+    </div>
 </div>

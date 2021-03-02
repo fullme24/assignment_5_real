@@ -9,5 +9,6 @@ namespace assignment_5_real.Models.ViewModels
     {
         public IEnumerable<Libro> Libros { get; set; }
         public PagingInfo PagingInfo { get; set; }
+        public string CurrentCategory { get; set; }
     }
 }

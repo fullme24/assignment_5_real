@@ -32,7 +32,7 @@ namespace assignment_5_real
 
             services.AddDbContext<LibrosDbContext>(options =>
             {
-                options.UseSqlServer(Configuration["ConnectionStrings:Libros"]);
+                options.UseSqlite(Configuration["ConnectionStrings:Libros"]);
             });
 
             services.AddScoped<ILibroRepository, EFLibroRepository>();
@@ -52,6 +52,7 @@ namespace assignment_5_real
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
             app.UseRouting();
@@ -62,8 +63,24 @@ namespace assignment_5_real
             {
                 //Note: this section of code is used to change how the URL works. It makes it more clear and easy for end-users
                 endpoints.MapControllerRoute(
+                    "pageCat",
+                    "{category}/{page:int}",
+                    new { Controller = "Home", action = "Index" });
+
+                endpoints.MapControllerRoute(
+                    "page",
+                    "{page:int}",
+                    new { Controller = "Home", action = "Index" }
+                    ); 
+                
+                endpoints.MapControllerRoute(
+                    "category",
+                    "{category}",
+                    new { Controller = "Home", action = "Index", page = 1 });
+
+                endpoints.MapControllerRoute(
                     "pagination",
-                    "/P{page}",
+                    "Books/{page}",
                     new { Controller = "Home", action = "Index" });
 
                 endpoints.MapDefaultControllerRoute();
