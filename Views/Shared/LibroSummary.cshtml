@@ -12,4 +12,18 @@
     <td>@Model.BAuthorMid</td>
     <td>@Model.BAuthorLast</td>
     <td>@Model.BPublisher</td>
+    <td>
+        <form id="@Model.BookID" asp-page="/Cart" method="post" asp-page-handler="onPost">
+            <input type="hidden" asp-for="BookID" />
+
+            <input type="hidden" name="returnUrl"
+                   value="@ViewContext.HttpContext.Request.PathAndQuery()"/>
+
+            <span class="card-text">
+                <button type="submit" class="btn-dark">
+                    Add to Cart
+                </button>
+            </span>
+        </form>
+    </td>
 </tr>

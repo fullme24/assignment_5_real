@@ -1,0 +1,19 @@
+﻿@model Cart
+
+@{
+
+}
+
+<!--
+    the following code chunk is an if statemnt that will test if there is anything in the cart and if there is it will show the cart summary
+-->
+<div class="">
+    @if (Model.Lines.Count() > 0)
+    {
+        <small class="navbar-text">
+            <b>Your cart:</b>
+            @Model.Lines.Sum(x => x.Quantity) item(s)
+            @Model.ComputeTotalSum().ToString("c")
+        </small>
+    }
+</div>

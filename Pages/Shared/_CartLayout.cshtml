@@ -1,0 +1,75 @@
+﻿@{
+    //The plan here is to set up the viewbag to be able to display the qualtity of items in the cart
+    ViewBag.PageName = "Home";
+
+    ViewBag.totalQuantity = 0;
+
+    foreach (var l in Model.Cart.Lines)
+    {
+        ViewBag.totalQuantity += l.Quantity;
+    }
+}
+
+@model assignment_5_real.Pages.CartModel
+
+<!Doctype html>
+<html>
+<head>
+    <meta name="viewport"
+          content="width=content-width, initial-scale=1.0" />
+
+    <title>
+        Cart
+    </title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+    <style>
+        /*
+            while bootstrap helped with a lot, I really wanted by table header and body separated
+            and bootstrap didnt have a class for that
+            */
+        .sep {
+            border-bottom-style: solid;
+            border-bottom-color: slategrey;
+            border-bottom-width: thick;
+        }
+
+        table {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto; /* or margin: 0 auto 0 auto */
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <div class="container">
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@ViewBag.PageName</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="navbar-text">
+                        <!--
+                            Here, since neither the book nor the videos showed us how to make components work with razor pages, I just had to make it work with the model and the the viewbag
+                        -->
+                        <p><small><strong>Your Cart:</strong> @ViewBag.totalQuantity Item(s) $@Model.Cart.ComputeTotalSum()</small></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main bg-secondary text-center">
+        @RenderBody()
+    </div>
+
+    <footer>
+    </footer>
+</body>
+</html>

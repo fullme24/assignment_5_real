@@ -2,7 +2,6 @@
     //setting up viewbag
     ViewBag.Title = "Assignment_5";
 }
-
 <!--
     This page is setting up the basic view
 -->
@@ -31,19 +30,32 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">@ViewBag.PageName</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <!--
-                        Since this is only going to be one page, for
-                        now I have removed most of the li items on the
-                        nav bar. later I will add more in, thus, I have left the bare
-                        bones tags for future use
-                    -->
                     <ul class="navbar-nav flex-grow-1">
+                        <li>
+                            <form asp-page="/Cart" method="get">
+
+                                <input type="hidden" name="returnUrl"
+                                       value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+                                <span class="card-text">
+                                    <button type="submit" class="btn-dark">
+                                        Cart
+                                    </button>
+                                </span>
+                            </form>
+                        </li>
+                        <li>
+                            <!--
+                                This is to pull in the new cart summary component
+                            -->
+                            <vc:cart-summary />
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +74,7 @@
         <div class="col ml-5">
             <a href="https://www.amazon.com/b?node=21597259011&ref=af_gw_dtop_thedrp_fans_more&pf_rd_r=RGVX09RD3K1MFRM3Q68F&pf_rd_p=96348468-55f1-4f2a-b9ac-d9f8d1289523&pd_rd_r=dcf4d672-a300-45bb-b485-a784cb47614e&pd_rd_w=oAws7&pd_rd_wg=OfSvf&ref_=pd_gw_unk"
                target="_blank">
-                <img src="~/img/avert2.png" alt="advert" style="height:375px; width:250px"/>
+                <img src="~/img/avert2.png" alt="advert" style="height:375px; width:250px" />
             </a>
         </div>
     </div>

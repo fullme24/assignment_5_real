@@ -1,0 +1,68 @@
+﻿@page
+
+@model assignment_5_real.Pages.CartModel
+
+<!--
+    This right here what will be shoved into the render body section of the _CartLayout and will show the user the cart that they have had
+-->
+    <h1>
+        Cart
+    </h1>
+
+    <!--
+        Setting up the table for the cart data
+    -->
+    <table>
+        <thead class="table-success sep table-bordered">
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody class="table-info sep table table-hover">
+            @foreach (var l in Model.Cart.Lines)
+            {
+                <tr>
+                    <td>
+                        @l.Libro.BTitle
+                    </td>
+
+                    <td>
+                        @l.Libro.BPrice
+                    </td>
+
+                    <td>
+                        @l.Quantity
+                    </td>
+
+                    <td>
+                        $@(l.Quantity*l.Libro.BPrice)
+                    </td>
+
+                    <td>
+                        <form method="post" asp-page-handler="Remove">
+                            <input type="hidden" value="@l.Libro.BookID"
+                                   name="BookID"/>
+
+                            <input type="hidden" value="@Model.ReturnUrl"
+                                   name="returnUrl"/>
+
+                            <span class="card-text">
+                                <button type="submit" class="btn-dark">
+                                    Remove
+                                </button>
+                            </span>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+    <div class="total rounded sep bg-light col-1">
+        Total: $@Model.Cart.ComputeTotalSum()
+    </div>

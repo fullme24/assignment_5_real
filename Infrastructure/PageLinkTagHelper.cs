@@ -48,7 +48,7 @@ namespace assignment_5_real.Infrastructure
             {
                 TagBuilder tag = new TagBuilder("a");
 
-                pageUrlValues["page"] = i;
+                pageUrlValues["pageNum"] = i;
 
                 tag.Attributes["href"] = urlHelper.Action(PageAction, pageUrlValues);
                 
